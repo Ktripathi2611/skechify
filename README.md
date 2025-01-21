@@ -1,91 +1,126 @@
-# Smart Drawing Analysis App
+# 🎨 Skechify - Smart Drawing Analysis
 
-An interactive drawing application that analyzes hand-drawn content using Google's Gemini AI API. Features include real-time drawing, grid support, and intelligent analysis of drawings.
+<div align="center">
 
-## Features
+![GitHub last commit](https://img.shields.io/github/last-commit/Ktripathi2611/skechify)
+![GitHub](https://img.shields.io/github/license/Ktripathi2611/skechify)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FKtripathi2611%2Fskechify)
 
-- Interactive canvas drawing
-- Adjustable grid system with customizable size
-- Real-time drawing analysis using Gemini AI
-- Responsive design with sidebar tools
-- Multiple color options and brush sizes
-- Clear and intuitive user interface
+[Live Demo](https://skechify.vercel.app) | [Report Bug](https://github.com/Ktripathi2611/skechify/issues) | [Request Feature](https://github.com/Ktripathi2611/skechify/issues)
 
-## Prerequisites
+<img src="public/demo.gif" alt="Skechify Demo" width="600"/>
 
-- Node.js (v14 or higher)
+</div>
+
+## ✨ Features
+
+🖌️ **Interactive Canvas**
+- Real-time drawing with adjustable brush sizes
+- Multiple color options
+- Customizable grid system
+- Eraser tool
+
+🤖 **AI-Powered Analysis**
+- Instant drawing analysis using Google's Gemini AI
+- Real-time feedback
+- Mathematical expression recognition
+- Detailed explanations
+
+🎯 **User Experience**
+- Clean, modern interface
+- Responsive design
+- Intuitive controls
+- Smooth animations
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 14+
 - npm or yarn
 - Google Gemini API key
 
-## Setup
+### One-Click Deploy
 
-1. Clone the repository:
+Deploy your own instance of Skechify with Vercel:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FKtripathi2611%2Fskechify)
+
+1. Click the "Deploy with Vercel" button
+2. Set up your environment variables:
+   - `REACT_APP_GEMINI_API_KEY`: Your Google Gemini API key
+
+### Local Development
+
+1. Clone the repository
 ```bash
-git clone <repository-url>
-cd drawing-analysis-app
+git clone https://github.com/Ktripathi2611/skechify.git
+cd skechify
 ```
 
-2. Install dependencies:
+2. Install dependencies
 ```bash
 npm install
 ```
 
-3. Create a `.env` file in the root directory:
-```env
-REACT_APP_GEMINI_API_KEY=your_gemini_api_key_here
+3. Set up environment variables
+```bash
+cp .env.example .env
+# Edit .env with your Gemini API key
 ```
 
-4. Start the development server:
+4. Start development server
 ```bash
 npm start
 ```
 
-## Deployment
+## 📱 Usage
 
-1. Build the production version:
-```bash
-npm run build
-```
+1. **Drawing Tools**
+   - Select colors from the toolbar
+   - Adjust brush size
+   - Toggle grid visibility
+   - Use eraser for corrections
 
-2. The build folder will contain the production-ready files. You can deploy this to any static hosting service:
+2. **Analysis**
+   - Draw your content
+   - Click "Analyze Drawing"
+   - View AI-powered insights
 
-- Vercel: Simply connect your repository and Vercel will handle the build process
-- Netlify: Connect repository or drag and drop the build folder
-- GitHub Pages: Push the build folder to gh-pages branch
+3. **Grid System**
+   - Toggle grid on/off
+   - Adjust grid size
+   - Use for precise drawings
 
-## Environment Variables
+## 🛠️ Built With
 
-- `REACT_APP_GEMINI_API_KEY`: Your Google Gemini API key (required)
+- [React](https://reactjs.org/) - UI Framework
+- [TailwindCSS](https://tailwindcss.com/) - Styling
+- [Google Gemini AI](https://deepmind.google/technologies/gemini/) - AI Analysis
+- [React Canvas Draw](https://www.npmjs.com/package/react-canvas-draw) - Drawing functionality
 
-## Project Structure
+## 📄 License
 
-```
-drawing-analysis-app/
-├── public/
-├── src/
-│   ├── components/
-│   ├── utils/
-│   ├── App.tsx
-│   └── index.tsx
-├── .env
-├── package.json
-└── README.md
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Development
+## 🤝 Contributing
 
-- Use `npm start` for development
-- Run `npm test` for testing
-- Use `npm run build` for production build
+Contributions are welcome! Feel free to:
 
-## Troubleshooting
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to your branch
+5. Open a Pull Request
 
-If the grid is not working:
-1. Ensure the grid toggle button is enabled
-2. Check if gridSize value is being properly set
-3. Verify that the canvas dimensions are calculated correctly
-4. Clear the canvas and try drawing again
+## 📧 Contact
 
-## License
+Kushal Tripathi - [@Ktripathi2611](https://github.com/Ktripathi2611)
 
-MIT License
+Project Link: [https://github.com/Ktripathi2611/skechify](https://github.com/Ktripathi2611/skechify)
+
+---
+
+<div align="center">
+Made with ❤️ by Kushal Tripathi
+</div>
