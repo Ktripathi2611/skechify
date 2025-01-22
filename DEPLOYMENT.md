@@ -43,7 +43,7 @@ This guide will walk you through deploying your Skechify app to Vercel.
 1. Expand "Environment Variables" section
 2. Add the following variable:
    - NAME: `REACT_APP_GEMINI_API_KEY`
-   - VALUE: `AIzaSyDtSkLK9kqF8aMDaPQHsGzSl2pEOeAx_2Y`
+   - VALUE: `Enter your API key here`
    - Select all environments (Production, Preview, Development)
 3. Click "Add"
 
