@@ -48,9 +48,14 @@ const App: React.FC = () => {
         linear-gradient(to right, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
       `,
-      backgroundSize: `${gridSize}px ${gridSize}px`
+      backgroundSize: `${gridSize}px ${gridSize}px`,
+      backgroundPosition: '0px 0px'
     };
   }, [showGrid, gridSize]);
+
+  const toggleGrid = () => {
+    setShowGrid(prev => !prev);
+  };
 
   const handleAnalyze = async () => {
     if (!canvasRef.current) {
@@ -108,7 +113,7 @@ const App: React.FC = () => {
       <div className="h-full flex flex-col">
         <header className="flex-none py-3 text-center bg-white/50 backdrop-blur-sm border-b border-slate-200">
           <h1 className="text-2xl md:text-3xl font-bold text-slate-800">
-            Smart Drawing Analysis
+            kushaltripathi_
           </h1>
         </header>
 
@@ -150,18 +155,19 @@ const App: React.FC = () => {
                 {/* Canvas with Bottom Padding for Footer */}
                 <div className="absolute inset-0 bottom-[72px] p-0.5">
                   <div 
-                    className="h-full border border-blue-200/50 rounded-lg overflow-hidden bg-white"
+                    className="h-full border border-blue-200/50 rounded-lg overflow-hidden bg-white relative"
                     style={gridStyle}
                   >
+                    <div className="absolute inset-0" style={gridStyle}></div>
                     <CanvasDraw
                       ref={canvasRef}
                       brushColor={brushColor}
                       brushRadius={brushSize}
                       canvasWidth={getCanvasDimensions().width}
                       canvasHeight={getCanvasDimensions().height}
-                      className="touch-none"
-                      backgroundColor="#FFFFFF"
-                      hideGrid={!showGrid}
+                      className="touch-none relative z-10"
+                      backgroundColor="transparent"
+                      hideGrid={true}
                       lazyRadius={0}
                       catenaryColor="rgba(59, 130, 246, 0.2)"
                     />
@@ -294,12 +300,13 @@ const App: React.FC = () => {
                     <p className="text-sm font-semibold text-slate-700">Grid</p>
                   </div>
                   <button
-                    onClick={() => setShowGrid(!showGrid)}
+                    onClick={toggleGrid}
                     className={`w-full flex items-center justify-center p-3 rounded-lg transition-all ${
                       showGrid 
                         ? 'bg-blue-50 ring-2 ring-blue-500 ring-offset-2' 
                         : 'hover:bg-slate-50 border border-slate-200'
                     }`}
+                    aria-pressed={showGrid}
                   >
                     <span className="text-sm text-slate-600">
                       {showGrid ? 'Hide Grid' : 'Show Grid'}
@@ -316,7 +323,11 @@ const App: React.FC = () => {
                       max="100"
                       step="20"
                       value={gridSize}
-                      onChange={(e) => setGridSize(Number(e.target.value))}
+                      onChange={(e) => {
+                        const newSize = Number(e.target.value);
+                        setGridSize(newSize);
+                      }}
+                      disabled={!showGrid}
                       className="w-full accent-blue-600"
                     />
                   </div>

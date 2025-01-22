@@ -1,7 +1,10 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const API_KEY = 'AIzaSyDtSkLK9kqF8aMDaPQHsGzSl2pEOeAx_2Y';
-const genAI = new GoogleGenerativeAI(API_KEY);
+if (!process.env.REACT_APP_GEMINI_API_KEY) {
+  throw new Error('REACT_APP_GEMINI_API_KEY environment variable is not set');
+}
+
+const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
 
 export const testGeminiAPI = async (): Promise<boolean> => {
   try {
@@ -48,13 +51,13 @@ export const analyzeDrawing = async (imageData: string): Promise<string> => {
       `Analyze this drawing for a classroom smartboard. Provide a clear, educational response following this format:
 
       For Mathematical Expressions:
-      📝 Expression: [Write the mathematical expression]
-      ✍️ Solution: [Show the solution clearly]
-      📚 Key Concept: [Explain the main mathematical concept in 1-2 sentences]
+      Expression: [Write the mathematical expression]
+      Solution: [Show the solution clearly]
+      Key Concept: [Explain the main mathematical concept in 1-2 sentences]
 
       For Drawings/Diagrams:
-      🎯 Main Topic: [Identify the subject/concept]
-      📋 Key Points:
+      Main Topic: [Identify the subject/concept]
+      Key Points:
       • [Point 1]
       • [Point 2]
       • [Point 3]
